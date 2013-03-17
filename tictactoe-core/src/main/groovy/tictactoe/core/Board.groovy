@@ -2,7 +2,7 @@ package tictactoe.core
 
 import org.slf4j.LoggerFactory
 
-class Board {
+class Board implements Serializable {
 	def logger = LoggerFactory.getLogger("tictactoe.core.Board") 
 	
 	private field = null
@@ -26,7 +26,6 @@ class Board {
 		for (def x : field.keySet()) {
 			for (def y : field[x].keySet()) {
 				def value = field[x][y]
-				logger.debug("Field at [${x}, ${y}] = '${value}")
 				if (value != null) {
 					if ("" != result) {
 						result += ", "
