@@ -11,11 +11,14 @@ response.setCharacterEncoding("UTF-8")
 
 webResponse = new TicTacToeWebResponse(out)
 
-def board = null
 if (!session) {
 	logger.info("New session from IP {}", request.remoteHost)
 	session = request.getSession(true)
+}
 
+def board = session.getAt("Board")
+
+if (null == board) {
 	webResponse.create()
 	board = new Board()
 	logger.debug("Add new board to session: '${board}'")
@@ -23,11 +26,8 @@ if (!session) {
 	
 	return
 } else {
-	board = session.getAt("Board")
 	logger.debug("Retrieved Board: '${board}'")
 }
-
-logger.debug("Finally using board '${board}'")
 
 if (params.isEmpty()) {
 	webResponse.help()
