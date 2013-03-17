@@ -1,0 +1,24 @@
+subprojects {
+        apply plugin: 'eclipse'
+        apply plugin: 'groovy'
+
+	repositories {
+		maven {
+			// Maven Central should do!
+			url 'http://repo1.maven.org/maven2'
+		}
+	}
+
+	project.sourceCompatibility=1.6
+
+        dependencies {
+			// use latest groovy ...
+                groovy 'org.codehaus.groovy:groovy:2.1.1'
+        }
+
+        version = '1.0'
+}
+
+task wrapper(type: Wrapper) {
+        gradleVersion = '1.3'
+}
