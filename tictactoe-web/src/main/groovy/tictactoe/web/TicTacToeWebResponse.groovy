@@ -1,14 +1,27 @@
 package tictactoe.web
 
 class TicTacToeWebResponse {
+	enum RESPONSE_FORMAT {
+		RAW, HTML
+	}
+
 	def out = null
-	
-	TicTacToeWebResponse(out) {
+	def responseFormat = RESPONSE_FORMAT.RAW
+	def response = null
+
+	TicTacToeWebResponse(out, response, params = null) {
 		this.out = out
+		if (params && params['TYPE'] && params['TYPE'] == "HTML") {
+			this.responseFormat = RESPONSE_FORMAT.HTML
+		}
+		this.response = response
 	}
 
 	private respond (String msg) {
-		out.println """
+		response.setCharacterEncoding("UTF-8")
+		if (responseFormat == RESPONSE_FORMAT.HTML) {
+			response.setContentType('text/html')
+			out.println """
 <html>
     <head>
         <title>TicTacToe</title>
@@ -18,12 +31,17 @@ ${msg}
     </body>
 </html>
 """
+		} else {
+			response.setContentType('text/plain')
+			out.println(msg)
+		}
+
 	}
-	
+
 	void create () {
 		respond ("NEW")
 	}
-	
+
 	void help () {
 		respond """<pre>
 CMD=DESTROY							-	Invalidate Session
@@ -32,19 +50,19 @@ CMD=SET&coordinate=c&value=[xo]	    -	Set 'value' ('x' or 'o') to field with coo
 CMD=SHOW                            -	Show board
 </pre>"""
 	}
-	
+
 	void error (msg) {
 		respond msg
 	}
-	
+
 	void show(String status) {
 		respond "FIELD: ${status}"
 	}
-	
+
 	void ok() {
 		respond "OK"
 	}
-	
+
 	void destroyed() {
 		respond "DESTROYED"
 	}

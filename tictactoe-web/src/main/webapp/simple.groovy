@@ -7,9 +7,7 @@ import tictactoe.web.TicTacToeWebResponse
 
 def logger = LoggerFactory.getLogger("tictactoe.web.simple")
 
-response.setCharacterEncoding("UTF-8")
-
-webResponse = new TicTacToeWebResponse(out)
+webResponse = new TicTacToeWebResponse(out, response, params)
 
 if (!session) {
 	logger.info("New session from IP {}", request.remoteHost)
