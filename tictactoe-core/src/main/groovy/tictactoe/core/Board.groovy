@@ -2,6 +2,12 @@ package tictactoe.core
 
 import org.slf4j.LoggerFactory
 
+
+/**
+ * @author ascheman
+ *
+ * TicTacToe-Board
+ */
 class Board implements Serializable {
 	def logger = LoggerFactory.getLogger("tictactoe.core.Board") 
 	
