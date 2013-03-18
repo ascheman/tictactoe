@@ -4,7 +4,7 @@ apply plugin: 'jetty'
 dependencies {
 	// Let's say we run on Cloudbees, Tomcat 6, etc.
 	providedCompile 'javax.servlet:servlet-api:2.5'
-	compile 'org.codehaus.groovy:groovy-all:2.1.1'
+	compile "org.codehaus.groovy:groovy-all:${parent.ext.groovyVersion}"
 	groovy project(':tictactoe-core')
 }
 
