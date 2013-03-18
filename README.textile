@@ -1,12 +1,10 @@
 h1. Groovy/Gradle Tic Tac Toe project
 
-This is a simple "Tic Tac Toe":https://en.wikipedia.org/wiki/Tic-tac-toe project 
-implemented (mostly) in "Groovy":http://groovy.codehaus.org (in fact it is a so called "Groovlet":http://groovy.codehaus.org/Groovlets). The project can be
-build and executed with "Gradle":http://gradle.org.
+This is a simple "Tic Tac Toe":https://en.wikipedia.org/wiki/Tic-tac-toe project implemented (mostly) in "Groovy":http://groovy.codehaus.org (in fact it is a so called "Groovlet":http://groovy.codehaus.org/Groovlets). The project can be build and executed with "Gradle":http://gradle.org.
 
 h2. Start
 
-You may simply check out the project from Git and run the command
+You may simply check out the project from "GitHub":https://github.com/ascheman/tictactoe and run the command
 
  @gradlew jettyRun@
  
