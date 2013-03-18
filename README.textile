@@ -1,0 +1,66 @@
+h1. Groovy/Gradle Tic Tac Toe project
+
+This is a simple "Tic Tac Toe":https://en.wikipedia.org/wiki/Tic-tac-toe project 
+implemented (mostly) in "Groovy":http://groovy.codehaus.org (in fact it is a so called "Groovlet":http://groovy.codehaus.org/Groovlets). The project can be
+build and executed with "Gradle":http://gradle.org.
+
+h2. Start
+
+You may simply check out the project from Git and run the command
+
+ @gradlew jettyRun@
+ 
+This will load all necessary stuff from the Internet, compile everything and start a "Jetty Servlet Engine":http://jetty.codehaus.org on @localhost@ (Port 58080, Context @/tictactoe-web@). 
+
+h2. HTTP Get Requests
+
+Now you can connect your browser to "http://localhost:58080/tictactoe-web/simple.groovy":http://localhost:58080/tictactoe-web/simple.groovy and see what happens.
+
+The application understands a number of commands as HTTP Get Requests. Simply use the URL encoded @CMD@ parameter, e.g. "http://localhost:58080/tictactoe-web/simple.groovy?CMD=HELP":http://localhost:58080/tictactoe-web/simple.groovy?CMD=HELP:
+
+* @HELP@: Print the help text
+* @RESET@: Start new Board
+* @DESTROY@: Start new Session
+* @SHOW@: Show the current Board
+* @SET@: Set a stone to a field given by two additional parameters
+** @coordinate@: One of A1, A2, A3, B1, B2, B3, C1, C2, C3
+** @value@: Either @x@ or @o@
+e.g., "http://localhost:58080/tictactoe-web/simple.groovy?CMD=SET&coordinate=A2&value=x":http://localhost:58080/tictactoe-web/simple.groovy?CMD=SET&coordinate=A2&value=x
+
+h2. Error handling
+
+The @simple.groovy@ implementation only provides restricted error handling, it only checks whether 
+* a CMD is valid
+* a field is already occupied
+* a coordinate is valid
+* a stone value is valid
+
+h2. Output formats
+
+Per default the simple implementation returns a single line with the Board (only used fields with their contents) or an error or other status. Only for the @HELP@ command you will see some more lines. If the optional parameter @FORMAT@ is set to @HTML@ the result is sent in very simple HTML code (please, don't validate!).
+
+h2. Session handling/Cookies
+
+Since the implementation is Groovlet (the Groovy variant of Java Servlets) based, it make use of a @JSESSIONID@ cookie to allow for multiple users to play a game on their own.
+  
+h2. Variants
+
+Currently there is only the @simple.groovy@ implementation which just provides a Board and only checks that there is only one stone on a field - _Nothing else_!
+Feel free to improve and implement other variants, e.g.,
+
+* HTML pretty printer which will draw a nice 3x3 playground
+* Forms or JavaScript to place stones
+* Computer player
+* URL encoded session handling
+* Socket variant
+* Plain Java
+...
+
+h2. Runtime environments
+
+The implementation has been tested on different runtimes:
+
+* Jetty, as mentioned above
+* Tomcat (local WAR)
+* "CloudBees":http://cloudbees.com (WAR deployed to local test environment)
+* "CloudBees":http://cloudbees.com (WAR deployed to CloudBees Run@CLOUD environment, if you are lucky you may still find it running on "http://tictactoe.aschemann.cloudbees.net/simple.groovy":http://tictactoe.aschemann.cloudbees.net/simple.groovy) 
