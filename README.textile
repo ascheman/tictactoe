@@ -1,3 +1,5 @@
+Library update status: !https://www.versioneye.com/user/projects/521fae55632bac64b9000bef/badge.png(Dependency Status)!:https://www.versioneye.com/user/projects/521fae55632bac64b9000bef (Powered by "VersionEye":http://versioneye.com)
+
 h1. Groovy/Gradle Tic Tac Toe project
 
 This is a simple "Tic Tac Toe":https://en.wikipedia.org/wiki/Tic-tac-toe project implemented (mostly) in "Groovy":http://groovy.codehaus.org (in fact it is a so called "Groovlet":http://groovy.codehaus.org/Groovlets). The project can be build and executed with "Gradle":http://gradle.org.
