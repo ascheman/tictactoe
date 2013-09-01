@@ -14,7 +14,7 @@ subprojects {
 
 	dependencies {
 		// use latest groovy ...
-		groovy "org.codehaus.groovy:groovy:$groovyVersion"
+		compile "org.codehaus.groovy:groovy:$groovyVersion"
 		compile 'org.slf4j:slf4j-api:1.+'
 		runtime 'org.slf4j:slf4j-log4j12:1.+'
 		testCompile 'junit:junit:4.+'
