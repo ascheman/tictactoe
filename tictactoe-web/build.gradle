@@ -5,7 +5,7 @@ dependencies {
 	// Let's say we run on Cloudbees, Tomcat 6, etc.
 	providedCompile 'javax.servlet:servlet-api:2.5'
 	compile "org.codehaus.groovy:groovy-all:${parent.ext.groovyVersion}"
-	groovy project(':tictactoe-core')
+	compile project(':tictactoe-core')
 }
 
 // Some ports for local Jetty test
