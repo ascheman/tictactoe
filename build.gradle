@@ -1,4 +1,4 @@
-project.ext.groovyVersion = "2.1.+"
+project.ext.groovyVersion = "2.2.1"
 
 subprojects {
 	apply plugin: 'eclipse'
@@ -20,9 +20,9 @@ subprojects {
 		testCompile 'junit:junit:4.+'
 	}
 
-	version = '1.0'
+	version = '1.0-SNAPSHOT'
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.7'
+	gradleVersion = '1.10'
 }
