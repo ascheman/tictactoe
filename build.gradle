@@ -3,7 +3,7 @@ project.ext.groovyVersion = "2.2.1"
 subprojects {
 	apply plugin: 'eclipse'
 	apply plugin: 'groovy'
-
+	apply plugin: 'java'
 
 	repositories {
 		maven {
