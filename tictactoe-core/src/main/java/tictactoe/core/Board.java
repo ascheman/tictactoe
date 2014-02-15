@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  *
  * TicTacToe-Board
  */
-public class Board implements Serializable {
+public class Board implements Serializable, IBoard {
 	/**
 	 * 
 	 */
@@ -25,6 +25,10 @@ public class Board implements Serializable {
 		reset();
 	}
 
+	/* (non-Javadoc)
+	 * @see tictactoe.core.IBoard#reset()
+	 */
+	@Override
 	public void reset () {
 		logger.debug("Resetting board!");
 		field = new Value[3][3];
@@ -54,11 +58,19 @@ public class Board implements Serializable {
 		return null != result ? result.toString() : "";
 	}
 	
+	/* (non-Javadoc)
+	 * @see tictactoe.core.IBoard#isSet(tictactoe.core.Coordinate)
+	 */
+	@Override
 	public boolean isSet(Coordinate c) {
 		Value value = getValue(c);
 		return null != value;
 	}
 
+	/* (non-Javadoc)
+	 * @see tictactoe.core.IBoard#getValue(tictactoe.core.Coordinate)
+	 */
+	@Override
 	public Value getValue (Coordinate c) {
 		int x = c.getXcartesian();
 		int y = c.getYcartesian();
@@ -67,6 +79,10 @@ public class Board implements Serializable {
 		return value;
 	}	
 
+	/* (non-Javadoc)
+	 * @see tictactoe.core.IBoard#setValue(tictactoe.core.Coordinate, tictactoe.core.Value)
+	 */
+	@Override
 	public void setValue(Coordinate c, Value v) {
 		if (isSet(c)) {
 			throw new RuntimeException ("Value at '" + c + "' is already set");
