@@ -6,8 +6,9 @@ subprojects {
 
 
 	repositories {
-		// Maven Central should do!
-		mavenCentral()
+		maven {
+			url = "http://192.168.2.22:8081/nexus/content/groups/public"
+		}
 	}
 
 	project.sourceCompatibility=1.6
