@@ -11,4 +11,6 @@ interface IGame {
 	IBoard getBoard()
 	GameState getState ()
 	void move(IPlayer player, Coordinate coordinate)
+	
+	List<IMove> getMoves()
 }
