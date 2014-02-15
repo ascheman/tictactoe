@@ -4,6 +4,11 @@ subprojects {
 	apply plugin: 'eclipse'
 	apply plugin: 'groovy'
 	apply plugin: 'java'
+	apply plugin: 'maven'
+
+	group = 'net.aschemann.tut3c'
+	archivesBaseName = project.name
+	version = '1.0-SNAPSHOT'
 
 	repositories {
 		maven {
@@ -21,7 +26,28 @@ subprojects {
 		testCompile 'junit:junit:4.+'
 	}
 
-	version = '1.0-SNAPSHOT'
+	def pomConfig = {
+		groupId project.group
+		artifactId project.name
+		version project.version
+	}
+
+	uploadArchives {
+		repositories {
+			mavenDeployer {
+				repository(url: "http://192.168.2.22:8081/nexus/content/repositories/snapshots") {
+					authentication(
+							// Diesen Benutzer als Property in ~/.gradle/gradle.properties definieren!
+							userName: project.properties['tut3c.nexus.user'],
+							password: project.properties['tut3c.nexus.pass']
+							)
+				}
+				pom.project pomConfig
+			}
+		}
+	}
+
+
 }
 
 task wrapper(type: Wrapper) {
