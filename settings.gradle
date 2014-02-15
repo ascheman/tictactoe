@@ -1,1 +1,1 @@
-include "tictactoe-core", "tictactoe-game", "tictactoe-web"
+include "tictactoe-core", "tictactoe-game", "tictactoe-game-impl-rest-client", "tictactoe-web"
