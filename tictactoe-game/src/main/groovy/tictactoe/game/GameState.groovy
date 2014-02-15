@@ -1,0 +1,7 @@
+package tictactoe.game
+
+enum GameState {
+	NEW, 
+	FIRST_HAS_TO_MOVE, SECOND_HAS_TO_MOVE,
+	FINISHED_FIRST_WON, FINISHED_SECOND_WON, FINISHED_DRAW, 
+}
