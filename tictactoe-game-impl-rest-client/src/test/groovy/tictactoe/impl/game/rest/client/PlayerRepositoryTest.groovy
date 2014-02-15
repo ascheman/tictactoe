@@ -8,8 +8,5 @@ class PlayerRepositoryTest {
 		def repo = new PlayerRepository()
 		def players = repo.getPlayers()
 		assert (players != null)
-//		print players
 	}
-	
-
 }
