@@ -12,7 +12,7 @@ subprojects {
 
 	repositories {
 		maven {
-			url = "http://192.168.2.22:8081/nexus/content/groups/public"
+			url = "http://projects.aschemann.net/nexus/content/groups/public"
 		}
 	}
 
@@ -35,7 +35,7 @@ subprojects {
 	uploadArchives {
 		repositories {
 			mavenDeployer {
-				repository(url: "http://192.168.2.22:8081/nexus/content/repositories/snapshots") {
+				repository(url: "https://projects.aschemann.net/nexus/content/repositories/snapshots") {
 					authentication(
 							// Diesen Benutzer als Property in ~/.gradle/gradle.properties definieren!
 							userName: project.properties['tut3c.nexus.user'],
